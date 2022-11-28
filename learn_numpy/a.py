@@ -52,3 +52,45 @@ print(a[-1][-2])  # 也可以使用python的负下标访问
 print(a[0, 2])  # 也可以这样访问
 
 # 数组运算
+## 代数运算，对所有元素进行操作
+a = np.array(list(range(10)))
+print(a)
+print(a+10)
+print(a-10)
+print(a*10)
+print(a/4)  # 商
+print(a//4)  # 向下取整
+print(a**2)
+print(a%4)  # 取模
+
+## 统计性的运算
+### 求和
+a = np.array([[1, 2], [3, 4], [5, 6]])
+print(np.sum(a))  # 计算出全部元素的和
+print(np.sum(a, axis=0))  # 按列求和
+print(np.sum(a, axis=1))  # 按行求和
+### 比较
+print(a>3)  # 返回一个bool类型的ndarray
+print(a==3)
+print(np.all(a>3))  # 所有
+print(np.any(a>3))  # 存在
+
+## 其他操作
+### 变形，前提是前后的元素个数相等
+a = np.array([list(range(10)), list(range(10, 20))])
+print(a)
+print(a.size)
+print(a.reshape((4, 5)))
+print(a)  # a本身保持不变
+
+### 排序
+a = np.array([[3, 2, 5], [7, 1, 4]])
+print(np.sort(a))  # 默认按行排序
+print(np.sort(a, axis=0))  # 按列排序
+a.sort()
+print(a)  # 会修改原来的数组
+
+### 数组拼接
+a = [[1, 2], [3, 4]]
+print(np.concatenate([a, a, a]))  # 默认按列拼接
+print(np.concatenate([a, a, a], axis=1))  # 按行拼接
